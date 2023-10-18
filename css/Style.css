@@ -1,48 +1,119 @@
-.my-bg {
- background-image: url("../images/bg.jpg");
-  background-repeat: repeat-x;
+.my-aboutme{font-family: 'Montserrat Alternates', sans-serif;
+font-size: 60px;}
+.my-timeline {
+  --primary-color: #ffffff;
+  --font: sans-serif;
 }
-.my-cover{font-family: 'Montserrat Alternates', sans-serif;
-text-transform: uppercase;  
-font-size: 90px;
-line-height: 90px;
-color:black}
-.my-name{font-family: 'Montserrat Alternates', sans-serif;
-text-transform: uppercase;  
-font-size: 60px;
-color:black}
-.my-self{font-family: 'Montserrat Alternates', sans-serif;
-text-transform: uppercase;  
-font-size: 50px;}
-.my-head{font-family: 'Montserrat Alternates', sans-serif;}
-text-transform: uppercase; 
-font-size: 40px;}
-.my-body {font-family: 'Montserrat Alternates', sans-serif;} 
-font-size: 20px;}
-.my-ial{font-family: 'Montserrat Alternates', sans-serif;
-text-transform: uppercase;  
-font-size: 20px;}
-.my-self2{font-family: 'Montserrat Alternates', sans-serif;
-  text-transform: uppercase;  
-font-size: 50px;
-line-height: 90px;}
-.my-head2{font-family: 'Montserrat Alternates', sans-serif;} 
-font-size: 20px;}
-.my-body2{font-family: 'Montserrat Alternates', sans-serif;} 
-font-size: 20px;}
-.my-body3{font-family: 'Montserrat Alternates', sans-serif;} 
-font-size: 20px;}
-.my-con{font-family: 'Montserrat Alternates', sans-serif;
-font-size: 50px;}
-.my-ude1{font-family: 'Montserrat Alternates', sans-serif;
-font-size: 20px;}
-.my-ude2{font-family: 'Montserrat Alternates', sans-serif;
-font-size: 20px;}
-.my-ude3{font-family: 'Montserrat Alternates', sans-serif;
-font-size: 20px;}
-.my-ude4{font-family: 'Montserrat Alternates', sans-serif;
-font-size: 20px;}
-.my-port{font-family: 'Montserrat Alternates', sans-serif;
-font-size: 50px;}
-.my-edu{font-family: 'Montserrat Alternates', sans-serif;
-font-size: 50px;}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* Timeline Container */
+.timeline {
+  background: background-color: #ffffff;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* Card container */
+.card {
+  position: relative;
+  max-width: 400px;
+}
+
+/* setting padding based on even or odd */
+.card:nth-child(odd) {
+  padding: 30px 0 30px 30px;
+}
+.card:nth-child(even) {
+  padding: 30px 30px 30px 0;
+}
+/* Global ::before */
+.card::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  border: solid ;
+}
+
+/* Setting the border of top, bottom, left */
+.card:nth-child(odd)::before {
+  left: 0px;
+  top: -4.5px;
+  bottom: -4.5px;
+  border-width: 5px 0 5px 5px;
+  border-radius: 50px 0 0 50px;
+}
+
+/* Setting the border of top, bottom, right */
+.card:nth-child(even)::before {
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-width: 5px 5px 5px 0;
+  border-radius: 0 50px 50px 0;
+}
+
+/* Removing the border if it is the first card */
+.card:first-child::before {
+  border-top: 0;
+  border-top-left-radius: 0;
+}
+
+/* Removing the border if it is the last card  and it's odd */
+.card:last-child:nth-child(odd)::before {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Removing the border if it is the last card  and it's even */
+.card:last-child:nth-child(even)::before {
+  border-bottom: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Information about the timeline */
+.info {
+  display: flex;
+  flex-direction: column;
+  background: #345452;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* Title of the card */
+.title {
+  color: White;
+  position: relative;
+}
+
+/* Timeline dot  */
+.title::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 999px;
+  border: 3px solid black;
+}
+
+/* text right if the card is even  */
+.card:nth-child(even) > .info > .title {
+  text-align: right;
+}
+
+/* setting dot to the left if the card is odd */
+.card:nth-child(odd) > .info > .title::before {
+  left: -45px;
+}
+
+/* setting dot to the right if the card is odd */
+.card:nth-child(even) > .info > .title::before {
+  right: -45px;
+}
